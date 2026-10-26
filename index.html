@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CentrAlign AI · Company Operator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">C</div><div><b>CentrAlign</b><small>AI COMPANY OPERATOR</small></div></div>
+    <div class="nav-label">WORKSPACE</div>
+    <a class="nav active" href="#overview"><span>◫</span> Overview</a>
+    <a class="nav" href="#invoices"><span>▤</span> Invoices <i id="invoiceNavCount">0</i></a>
+    <a class="nav" href="#activity"><span>⌁</span> Agent activity</a>
+    <div class="sidebar-bottom"><div class="mode-dot"></div><div><b>Local simulation</b><small>No external email service</small></div></div>
+  </aside>
+  <main>
+    <header><div class="crumb">Workspace <span>/</span> Overview</div><div class="user"><span class="online"></span> Operator demo <div class="avatar">O</div></div></header>
+    <div class="content">
+      <section class="welcome" id="overview">
+        <div><div class="eyebrow">AUTONOMOUS OPERATIONS <span class="pill">LOCAL DEMO</span></div><h1>Good morning, operator.</h1><p>Give your AI employee an outcome. It will plan, use tools, observe results, and verify its work.</p></div>
+        <div class="clock"><span class="pulse"></span> Ready for a task</div>
+      </section>
+      <section class="stats">
+        <div class="stat"><div class="stat-top"><span>OPEN INVOICES</span><span class="stat-icon blue">▤</span></div><strong id="statOpen">—</strong><small>Unpaid records</small></div>
+        <div class="stat"><div class="stat-top"><span>OVERDUE</span><span class="stat-icon amber">◷</span></div><strong id="statOverdue">—</strong><small>Need follow-up</small></div>
+        <div class="stat"><div class="stat-top"><span>OUTSTANDING</span><span class="stat-icon violet">$</span></div><strong id="statAmount">—</strong><small>Across unpaid invoices</small></div>
+        <div class="stat"><div class="stat-top"><span>PENDING APPROVAL</span><span class="stat-icon green">✓</span></div><strong id="statPending">—</strong><small>Human decision required</small></div>
+      </section>
+      <section class="task-card">
+        <div class="section-heading"><div><div class="eyebrow">TASK INTAKE</div><h2>What should I take care of?</h2></div><div class="intake-tools"><button class="quiet-btn" id="retryBtn">⚡ Arm one-time retry demo</button><span class="mode-badge"><span class="mode-dot"></span> Deterministic agent</span></div></div>
+        <form id="taskForm"><label for="request">Describe the outcome you want</label><div class="input-row"><textarea id="request" rows="2" placeholder="Review overdue invoices, prioritize the ones requiring follow-up, draft reminder emails, and prepare a summary for approval."></textarea><button id="runBtn" type="submit"><span>Run task</span><b>↗</b></button></div></form>
+        <div class="task-note"><span>✳</span> The agent can prepare reminders and queue approved messages in a simulated outbox. Nothing is sent externally.</div>
+      </section>
+      <section id="result" class="result hidden"></section>
+      <section class="lower-grid">
+        <div class="panel" id="invoices"><div class="panel-head"><div><h2>Invoice ledger</h2><p>Seeded company records · refreshed from SQLite</p></div><button class="quiet-btn" id="refreshBtn">↻ Refresh</button></div><div class="table-wrap"><table><thead><tr><th>INVOICE</th><th>VENDOR</th><th>DUE DATE</th><th>AMOUNT</th><th>STATUS</th></tr></thead><tbody id="invoiceRows"></tbody></table></div></div>
+        <div class="panel" id="activity"><div class="panel-head"><div><h2>Recent tasks</h2><p>Persistent agent runs</p></div><span class="count-chip" id="taskCount">0</span></div><div id="taskList" class="task-list"></div></div>
+      </section>
+      <footer><span>◈ CentrAlign AI</span><span>Invoice follow-up prototype · SQLite persistence</span></footer>
+    </div>
+  </main>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

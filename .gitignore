@@ -1,0 +1,5 @@
+__pycache__/
+*.py[cod]
+centrAlign.sqlite3
+centrAlign.sqlite3-shm
+centrAlign.sqlite3-wal
